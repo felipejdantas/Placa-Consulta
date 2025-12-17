@@ -1,0 +1,8 @@
+{
+    "rewrites": [
+        {
+            "source": "/webhook/:path*",
+            "destination": "https://n8n2.dantasinfo.com/webhook/:path*"
+        }
+    ]
+}
