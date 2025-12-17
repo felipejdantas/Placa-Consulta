@@ -104,7 +104,7 @@ function InfoItem({ label, value, highlight = false }: { label: string, value: s
     return (
         <div style={{ padding: '1rem', background: 'var(--bg-app)', borderRadius: 'var(--radius-sm)' }}>
             <p className="text-secondary" style={{ fontSize: '0.8rem', marginBottom: '0.2rem' }}>{label}</p>
-            <p style={{ fontWeight: '600', color: highlight ? '#ef4444' : 'white' }}>{value || '--'}</p>
+            <p style={{ fontWeight: '600', color: highlight ? '#ef4444' : 'var(--text-primary)' }}>{value || '--'}</p>
         </div>
     );
 }
