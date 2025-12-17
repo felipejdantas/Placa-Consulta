@@ -42,21 +42,8 @@ export default function Result() {
     const yearFab = data.ano || getField(data, 'year') || '';
     const cor = getField(data, 'color') || getField(data, 'cor');
 
-    // Extract FIPE from nested 'texto_valor' based on screenshot
-    let fipeValue = 'R$ --';
-    try {
-        // Path verified via user screenshot: fipe -> dados[0] -> texto_valor
-        if (data.fipe?.dados?.[0]?.texto_valor) {
-            fipeValue = data.fipe.dados[0].texto_valor;
-        } else if (data.fipe?.dados?.[0]?.valor) {
-            fipeValue = data.fipe.dados[0].valor;
-        } else if (data.texto_valor) {
-            // Check root just in case
-            fipeValue = data.texto_valor;
-        }
-    } catch (e) {
-        console.error('Erro ao ler FIPE', e);
-    }
+    // Extract Chassi
+    const chassi = getField(data, 'chassi') || getField(data, 'chassis');
 
     return (
         <div className="container animate-fade-in">
@@ -93,7 +80,7 @@ export default function Result() {
                     <InfoItem label="Ano Fab." value={yearFab} />
                     <InfoItem label="Ano Modelo" value={yearModel} />
                     <InfoItem label="Cor" value={cor} />
-                    <InfoItem label="Valor da FIPE" value={fipeValue} highlight />
+                    <InfoItem label="Chassi" value={chassi} highlight />
                 </div>
             </div>
         </div>
